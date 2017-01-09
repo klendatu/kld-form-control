@@ -1,0 +1,90 @@
+
+/*======================================*/
+/*		Dropdown						*/
+/*======================================*/
+.kldcf-dropdown {
+	width: 200px;	height:30px;	line-height:30px; padding: 0 10px;
+	background: #ccc;
+	font-family:Arial;	font-size:17px;	font-weight:bold;	color:brown; cursor: pointer;
+}
+
+
+/*======================================*/
+/*		Select							*/
+/*======================================*/
+.kldcf-select {
+	width: 300px;	height:30px;	line-height:30px;
+	background:white url('img/arrows.png') right center no-repeat;
+	border-radius: 10px;	border:1px solid #777;
+	font-family:Arial;	font-size:17px;	font-weight:bold;	color:brown;
+}
+
+/*======================================*/
+/*		INPUT FILE						*/
+/*======================================*/
+.kldcf-file {
+	position: relative;	height:25px; font-size: 0; border-radius: 10px; border:1px solid #aaa; cursor: pointer;
+}
+
+	.kldcf-file * { box-sizing: border-box; }
+
+	.kldcf-file-input {
+		position: absolute; top: 0; left: 0; opacity: 0.0; z-index: 1;
+	}
+
+	.kldcf-file-source, .kldcf-file-action {
+		position: relative; z-index: 2;
+		display: inline-block; vertical-align: top; height: 100%;  font-size: 15px;
+		font-family:Arial; font-weight:bold; line-height:1.6; text-align:center;
+	}
+
+	.kldcf-file-source {
+		width: 65%; height: 100%;
+		border-right:1px solid #aaa;
+	}
+	.kldcf-file-action {
+		width:35%; 
+		white-space:nowrap;
+	}
+
+
+/*======================================*/
+/*		INPUT CHECKBOX					*/
+/*======================================*/
+
+.kldcf-checkbox {}
+	.kldcf-checkbox-wrapper {
+		display: inline-block; width:20px;	height:20px;
+		background-repeat: no-repeat; background-image: url("img/spriteCheckbox.png"); background-position: 0px -20px;
+		cursor: pointer;	
+	}
+	.kldcf-checkbox-wrapper.on { background-position: 0px 0px; }
+	.kldcf-checkbox-wrapper input { opacity: 0.0; cursor: pointer; }
+	.kldcf-checkbox-label {	cursor: pointer; }
+	
+	/* Skin 2 */
+	.kldcf-checkbox._skin2 .kldcf-checkbox-wrapper { background-image: url("img/spriteCheckbox2.png"); }
+
+
+
+
+/*======================================*/
+/*		INPUT RADIO					*/
+/*======================================*/
+
+.kldcf-radio {}
+	.kldcf-radio-wrapper {
+		display: inline-block; width:20px;	height:20px;
+		background-repeat: no-repeat; background-image: url("img/spriteRadio.png");	background-position: 0px -20px;
+		cursor: pointer;	
+	}
+	.kldcf-radio-label {	cursor: pointer; }
+	.kldcf-radio-wrapper.on { background-position: 0px 0px; }
+	.kldcf-radio  input[type="radio"] { cursor: pointer; opacity: 0; margin: 0; padding: 0; }
+
+	/* Skin 2 */
+	.kldcf-radio._skin2 .kldcf-radio-wrapper {
+		background-image: url("img/spriteRadio2.png");
+	}
+
+
