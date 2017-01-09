@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>KLD Custom Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	
+	<script src="jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+	<script src="kld-customform.js" type="text/javascript" charset="utf-8"></script>
+	<link  href="kld-customform.css" type="text/css" media="all" rel="stylesheet" />
+	<style>
+		body {
+			min-height: 2000px;
+			font-family: Arial;	
+		}
+		
+		h2  {
+			margin-top: 10px;
+			padding: 2px 10px;
+			color: White;
+			background: #444;
+		}
+		
+		.block {	
+			width: 900px;
+			margin: 0 auto;
+			padding: 0 0 40px; 
+		}
+	</style>
+	
+	<script>	
+	$(document).ready(function(){
+	 
+		Kld.customForm.radio('.kldcf-radio');
+		 
+		Kld.customForm.checkbox('.kldcf-checkbox');
+		
+		Kld.customForm.file('.kldcf-file');
+		
+		Kld.customForm.select('.kldcf-select');
+		
+		Kld.customForm.dropdown('.kldcf-dropdown');
+	 
+	 });	
+	</script>
+</head>
+<body>
+
+
+<div class="block">
+	<h2>Radio</h2>
+	<div class="kldcf-radio">
+		<label for="cfRadio_1">Label 1 : <input type="radio" name="my_first_radiobox" value="1" id="cfRadio_1" /></label>
+		<label for="cfRadio_2">Label 2 : <input type="radio" name="my_first_radiobox" value="2" id="cfRadio_2" /></label>
+		<label for="cfRadio_3">Label 3 : <input type="radio" name="my_first_radiobox" value="3" id="cfRadio_3" /></label>
+	</div>
+
+	<br />
+		
+	<div class="kldcf-radio">
+		<input type="radio" name="my_second_radiobox" value="1" />
+		<input type="radio" name="my_second_radiobox" value="2" />
+		<input type="radio" name="my_second_radiobox" value="3" checked="checked" />
+	</div>
+	
+	<br />
+		
+	<div class="kldcf-radio _skin2">
+		<input type="radio" name="my_third_radiobox" value="1" /></label>
+		<input type="radio" name="my_third_radiobox" value="2" /></label>
+		<input type="radio" name="my_third_radiobox" value="3" checked="checked" /></label>
+	</div>
+</div>
+
+
+<div class="block">
+	<h2>Checkbox</h2>
+	<div class="kldcf-checkbox">
+		<label for="cfCheckbox_1">Label 1 : <input type="checkbox" name="cfCheckbox[]" value="1" id="cfCheckbox_1" /></label>
+		<label for="cfCheckbox_2">Label 2 : <input type="checkbox" name="cfCheckbox[]" value="2" id="cfCheckbox_2" /></label>
+		<label for="cfCheckbox_3">Label 3 : <input type="checkbox" name="cfCheckbox[]" value="3" id="cfCheckbox_3" checked="checked" /></label>
+	</div>
+		<br />
+		
+	<div class="kldcf-checkbox">
+		<input type="checkbox" name="cfCheckbox[]" value="1" /></label>
+		<input type="checkbox" name="cfCheckbox[]" value="2" /></label>
+		<input type="checkbox" name="cfCheckbox[]" value="3" /></label>
+	</div>
+		<br />
+		
+	<div class="kldcf-checkbox _skin2">
+		<input type="checkbox" name="cfCheckbox[]" value="1" /></label>
+		<input type="checkbox" name="cfCheckbox[]" value="2" /></label>
+		<input type="checkbox" name="cfCheckbox[]" value="3" checked /></label>
+	</div>
+
+		<br />
+		
+</div>
+	
+	
+	
+<div class="block">
+	<h2>File</h2>
+		<br />
+	Uploader un fichier : <input type="file" class="kldcf-file" />
+		<br />
+	Uploader un fichier : <input type="file" class="kldcf-file" />	
+		<br />
+</div>
+
+
+
+<div class="block">
+	<h2>Select</h2>
+	<select class="kldcf-select" name="">
+		<option value="">Choose your movie</option>
+		<option value="1">Gremlins</option>
+		<option value="2">Terminator</option>
+		<option value="3">V pour Vendetta</option>
+		<option value="4">Star Wars</option>
+		<option value="5">Les aventuriers de l'Arche perdue</option>
+		<option value="6">Total Recall</option>
+		<option value="7">Retour vers le futur</option>
+		<option value="8">Scream</option>
+		<option value="9">Pulp Fiction</option>
+	</select>
+</div>
+
+	
+	
+<div class="block">
+	<h2>DropDown</h2>
+	
+	<div class="kldcf-dropdown">
+		<p class="kldcf-dropdown-window">
+			<span class="kldcf-dropdown-label">DropDown &darr;</span>
+			<span class="kldcf-dropdown-picto"></span>
+		</p>
+		<ul class="kldcf-dropdown-select" style="display: none">
+			<li data-value="1">Bob</li>
+			<li data-value="2">Douglas</li>
+			<li data-value="3">Roger</li>
+		</ul>
+		<input class="kldcf-dropdown-input" type="hidden" name="" value="" />
+	</div>	
+</div>
+
+
+
+</body>
+</html>
