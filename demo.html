@@ -30,14 +30,14 @@
 	<script>
 	$(document).ready(function(){
 	
-		new FormControl('form_account_create', {
+		Kld.FormControl('#form_account_create', {
 			sameValues: ['.password', '.email']
 		});
 		
-		new FormControl('form_account_create_custom', {
+		Kld.FormControl('#form_account_create_custom', {
 			sameValues: ['.password', '.email']
 		});
-				
+		
 		Kld.customForm.radio('.kldcf-radio');
 		 
 		Kld.customForm.checkbox('.kldcf-checkbox');

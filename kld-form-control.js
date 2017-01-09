@@ -1,25 +1,23 @@
 
-var FormControl = function(formID, options){
-	this.id = formID;
-	this.$node = $('#' + this.id);
-	
-	if (this.$node.length < 1)
-		return;
-		
-	if (options == undefined)
-		options = {};
-		
-	this.options = this.jsonExtend(options, {
-		sameValues: []
-	});
-	
-	this.error = false;
-	this.init();
-}
++(function($, global){
 
-FormControl.prototype = {
 
-	init: function(){
+	var FormControl = function($node, options){
+		this.$node = $node;
+		
+		if (this.$node.length < 1)
+			return;
+			
+		if (options == undefined)
+			options = {};
+			
+		this.options = this.jsonExtend(options, FormControl.defaults);
+		
+		this.error = false;
+		this.init();
+	}
+
+	FormControl.prototype.init = function(){
 		var that = this;
 		this.setDom();
 		this.setFocus();
@@ -38,7 +36,7 @@ FormControl.prototype = {
 		});
 	},
 	
-	setDom: function(){	
+	FormControl.prototype.setDom = function(){
 		this.$selectorFieldText 			= '.FieldText';
 		this.$selectorFieldRadio		 	= '.FieldRadio';
 		this.$selectorFieldCheckbox		 	= '.FieldCheckbox';
@@ -46,7 +44,7 @@ FormControl.prototype = {
 		this.$selectorFieldFile			 	= '.FieldFile';
 	},
 	
-	setFocus: function(){
+	FormControl.prototype.setFocus = function(){
 		var that = this;
 		this.$node.find('input[type="text"]').on('focus', function(){
 			var $fieldText = $(this).parents(that.$selectorFieldText);
@@ -56,7 +54,7 @@ FormControl.prototype = {
 		});
 	},
 	
-	resetMessage: function(){
+	FormControl.prototype.resetMessage = function(){
 		this.$node.find(this.$selectorFieldText).removeClass('is-error');
 		this.$node.find(this.$selectorFieldRadio).removeClass('is-error');
 		this.$node.find(this.$selectorFieldCheckbox).removeClass('is-error');
@@ -64,7 +62,7 @@ FormControl.prototype = {
 		this.$node.find(this.$selectorFieldFile).removeClass('is-error');
 	},
 	
-	checkInputFile: function(){
+	FormControl.prototype.checkInputFile = function(){
 		var that = this;
 		
 		this.$node.find(this.$selectorFieldFile).each(function(){
@@ -79,11 +77,9 @@ FormControl.prototype = {
 				}
 			}			
 		});
-		
-		console.log('text error: '+that.error)
 	},	
 	
-	checkInputSelect: function(){
+	FormControl.prototype.checkInputSelect = function(){
 		var that = this;
 		
 		this.$node.find(this.$selectorFieldSelect).each(function(){
@@ -98,11 +94,9 @@ FormControl.prototype = {
 				}
 			}			
 		});
-		
-		console.log('text error: '+that.error)
 	},	
 	
-	checkInputRadio: function(){
+	FormControl.prototype.checkInputRadio = function(){
 		var that = this;
 		
 		this.$node.find(this.$selectorFieldRadio).each(function(){	
@@ -126,10 +120,9 @@ FormControl.prototype = {
 			}			
 		});
 		
-		console.log('radio error: '+that.error)
 	},
 	
-	checkInputCheckbox: function(){
+	FormControl.prototype.checkInputCheckbox = function(){
 		var that = this;	
 		
 		this.$node.find(this.$selectorFieldCheckbox).each(function(){	
@@ -152,10 +145,9 @@ FormControl.prototype = {
 				}
 			}			
 		});
-		console.log('checkbox error: '+that.error)
 	},
 	
-	checkInputText: function(){
+	FormControl.prototype.checkInputText = function(){
 		var that = this;
 		
 		this.$node.find(this.$selectorFieldText).each(function(){
@@ -170,11 +162,9 @@ FormControl.prototype = {
 				}
 			}			
 		});
-		
-		console.log('text error: '+that.error)
 	},
 	
-	checkSameValues: function(){
+	FormControl.prototype.checkSameValues = function(){
 		var that = this;		
 		
 		for (var key in this.options.sameValues){
@@ -196,12 +186,27 @@ FormControl.prototype = {
 		}
 	},
 	
-	jsonExtend: function(json, defaultJSON){
+	FormControl.prototype.jsonExtend = function(json, defaultJSON){
 		var result={};
 		for(var key in defaultJSON) result[key]=defaultJSON[key];
 		for(var key in json) 		result[key]=json[key];
 		return result;
 	}
-}
+	
+	FormControl.defaults = {
+		sameValues: []
+	}
+		
+	var module = function(selector, options){
+		$(selector).each(function(){
+			var $form = $(this);
+			$form.data('kld.formcontrol', new FormControl($form, options));
+		});
+	}
 
+	global.Kld = global.Kld || {};
+	
+	global.Kld.FormControl = module;
+	
+}(jQuery, window));
 
