@@ -1,0 +1,21 @@
+
+
+.FieldRadio {}
+.FieldRadio-message { display: none; }
+.FieldRadio.is-error .FieldRadio-message { display: block; }
+
+.FieldCheckbox {}
+.FieldCheckbox-message { display: none; }
+.FieldCheckbox.is-error .FieldCheckbox-message { display: block; }
+
+.FieldText {}
+.FieldText-message { display: none; }
+.FieldText.is-error .FieldText-message { display: block; }
+
+.FieldSelect {}
+.FieldSelect-message { display: none; }
+.FieldSelect.is-error .FieldSelect-message { display: block; }
+
+.FieldFile {}
+.FieldFile-message { display: none; }
+.FieldFile.is-error .FieldFile-message { display: block; }
